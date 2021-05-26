@@ -1,0 +1,12 @@
+.sections .section {
+    display: none !important;
+}
+.sections .section.current {
+    display: block !important;
+}
+p.filled {
+    display: none;
+}
+.igw .invalid-feedback {
+    display: block;
+}
