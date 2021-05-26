@@ -106,55 +106,31 @@
                                         <input type="text" class="form-control form-control-lg rounded-0 shadow-sm"
                                                name="auto-fill" id="auto-fill" placeholder="Start typing your locality">
                                     </div>
+
                                     <div class="col igw">
                                         <input type="text" class="form-control form-control-lg rounded-0 shadow-sm"
-                                               name="street_address" id="streetAddress" placeholder="Street" aria-label="Street Address">
+                                               name="street_address" id="streetAddress" placeholder="Street" aria-label="Street Address" required="">
                                     </div>
                                     <div class="col igw">
                                         <input type="text" class="form-control form-control-lg rounded-0 shadow-sm"
-                                               name="city" id="city" placeholder="City" aria-label="City">
+                                               name="city" id="city" placeholder="City" aria-label="City" required="">
                                     </div>
                                     <div class="col igw">
                                         <input type="text" class="form-control form-control-lg rounded-0 shadow-sm"
-                                               name="state_province_id" id="state" placeholder="State" aria-label="State">
+                                               name="state_province_id" id="state" placeholder="State" aria-label="State" required="">
                                     </div>
                                     <div class="col igw">
                                         <input type="text" class="form-control form-control-lg rounded-0 shadow-sm"
-                                               name="postal_code" placeholder="Zip" id="zipCode" aria-label="Zip Code">
+                                               name="postal_code" placeholder="Zip" id="zipCode" aria-label="Zip Code" required="">
                                     </div>
 
 
                                 </div>
 
-                                <div class="section"
-                                     aria-labelledby="contact-tab">
-
-                                    <div class="col igw">
-                                        <input type="text" class="form-control form-control-lg rounded-0 shadow-sm"
-                                               name="credit_card" placeholder="Credit Card" aria-label="Credit Card">
-                                    </div>
-
-                                    <select class="form-select" name="expMonth" aria-label="Default select example">
-                                        <option selected>- Month -</option>
-                                        <option value="01">01</option>
-                                        <option value="02">02</option>
-                                        <option value="03">03</option>
-                                        <option value="04">04</option>
-                                    </select>
-
-                                    <select class="form-select" name="expYear" aria-label="Default select example">
-                                        <option selected>- Year -</option>
-                                        <option value="2021">2021</option>
-                                        <option value="2022">2022</option>
-                                        <option value="2023">2023</option>
-                                        <option value="2024">2024</option>
-                                    </select>
-
-
-                                    <div class="col igw">
-                                        <input type="text" class="form-control form-control-lg rounded-0 shadow-sm"
-                                               name="csv_code" placeholder="CSV Code" aria-label="CSV Code">
-                                    </div>
+                                <div class="section">
+                                    <label class="w-100 h4">Card Details
+                                        <div class="w-100 mt-4" id="card-element"></div>
+                                    </label>
 
                                 </div>
 
@@ -163,7 +139,7 @@
                                 <div class="d-flex justify-content-between form-navigation mt-4">
                                     <button type="button" id="prevButton" class="btn btn-outline-primary previous">Back</button>
                                     <button type="button" id="nextButton" class="btn btn-outline-primary next">Next</button>
-                                    <button type="submit" id="donateButton" class="btn btn-outline-primary">DONATE</button>
+                                    <button disabled type="submit" id="donateButton" class="btn btn-outline-primary">DONATE</button>
                                 </div>
                             </div>
 
@@ -195,10 +171,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"
         integrity="sha512-eyHL1atYNycXNXZMDndxrDhNAegH2BDWt1TmkXJPoGf1WLlNYt08CSjkqF5lnCRmdm3IrkHid8s2jOUY4NIZVQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://js.stripe.com/v3/"></script>
 <script src="assets/js/validate.js"></script>
 <script src="assets/js/main.js"></script>
 <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVqFJd8uI0mJAt_QQjeTpqpHDBA4ZbYT4&callback=initAutocomplete&libraries=places&v=weekly"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALFEtKECvnmhm2B5GPDkaXz-I-GIbNHGg&callback=initAutocomplete&libraries=places&v=weekly"
         async
 ></script>
 </body>
