@@ -1,5 +1,5 @@
 $(window).on('load', function() {
- 
+ // var btnFinish = $('<button id="btn-Stripe" disabled></button>').text('Donate').addClass('btn-Stripe');
   // SmartWizard initialize
   $('#smartwizard').smartWizard({
      theme:'arrows',
@@ -13,7 +13,8 @@ $(window).on('load', function() {
       enableFinishButton:true
   },
   toolbarSettings:{
-    showFinishButton:true,
+
+    toolbarExtraButtons: [$('<button id="btn-Stripe"></button>').text('Donate').addClass('btn-Stripe')]
   },
   // onLeaveStep:
   });
@@ -23,14 +24,6 @@ $(window).on('load', function() {
         var step = currentStepIndex;
         return validateSteps(currentStepIndex)
 });
-
-
-
-    function leaveAStepCallback(obj){
-        alert(obj);
-        var step_num= obj.attr('rel');
-        return validateSteps(step_num);
-      }
 
         function validateAllSteps(){
        var isStepValid = true;
@@ -47,6 +40,7 @@ $(window).on('load', function() {
          $('#smartwizard').smartWizard('setError',{stepnum:2,iserror:true});         
        }else{
          $('#smartwizard').smartWizard('setError',{stepnum:2,iserror:false});
+          
        }
        
        if(!isStepValid){
@@ -133,59 +127,90 @@ $(window).on('load', function() {
        if(!first_name && first_name.length <= 0){
          isValid = false;
          $('#first_name').addClass("border-danger");
+         $('.errorf').html('first name is required').show();         
+
        }else{
          $('#first_name').removeClass("border-danger");
+         $('.errorf').html('').hide();         
+          
        }
        // validate last name field
        if(!last_name && last_name.length <= 0){
          isValid = false;
          $('#last_name').addClass("border-danger");
+         $('.errorl').html('last name is required').show();         
+
        }else{
          $('#last_name').removeClass("border-danger");
+         $('.errorl').html('').hide();         
+          
        }
        // validate phone field
        if(!phone && phone.length <= 0){
          isValid = false;
          $('#phone').addClass("border-danger");
+         $('.errorp').html('phone is required').show();         
+
        }else{
          $('#phone').removeClass("border-danger");
+         $('.errorp').html('').hide();         
+         
        }
        // validate email field
-       if(!email && email.length <= 0){
-        if(!isValidEmailAddress(email)){
-         isValid = false;
-         $('#email').addClass("border-danger");
+       if(email && email.length > 0){
+         if(!isValidEmailAddress(email)){
+           isValid = false;
+           $('.errore').html('email is invalid').show();           
+         }else{
+          $('.errore').html('').hide();
+         }
        }else{
-         $('#email').removeClass("border-danger");
-       }}
+         isValid = false;
+         $('.errore').html('email is required').show();
+       }  
        // validate street field
        if(!street_address && street_address.length <= 0){
          isValid = false;
          $('#street_address').addClass("border-danger");
+         $('.errorsa').html('street address is required').show();         
+
        }else{
          $('#street_address').removeClass("border-danger");
+         $('.errorsa').html('').hide();         
+
        }
 
        // validate city field
        if(!city && city.length <= 0){
          isValid = false;
          $('#city').addClass("border-danger");
+         $('.errorc').html('city name is required').show();         
+
        }else{
          $('#city').removeClass("border-danger");
+         $('.errorc').html('').hide();         
+          
        }
 
        // validate state field
        if(!state_province_id && state_province_id.length <= 0){
          isValid = false;
          $('#state_province_id').addClass("border-danger");
+         $('.errorpi').html('state is required').show();         
+
        }else{
          $('#state_province_id').removeClass("border-danger");
+         $('.errorpi').html('').hide();         
+        
        }
        // validate zip field
        if(!postal_code && postal_code.length <= 0){
          isValid = false;
          $('#postal_code').addClass("border-danger");
+         $('.errorpc').html('postal code is required').show();         
+
        }else{
+         $('.errorpc').html('').hide();         
          $('#postal_code').removeClass("border-danger");
        }
 
